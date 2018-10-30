@@ -7,7 +7,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="css/css.css" rel="stylesheet" type="text/css" />
     <script src="node_modules/roughjs/dist/rough.min.js"></script>
-    <!--<script src="//roughjs.com/builds/rough.min.js"></script>-->
     <script type="text/javascript" src="js/js.js"></script>
 
 </head>
@@ -17,24 +16,28 @@
 
         <script>
 
-            let rc = rough.canvas(document.getElementById("canvas"));
-            rc.circle(50, 50, 80, {
-                fill: 'red',
-                fillStyle: 'solid'
-            }); // fill with red hachure
-            rc.rectangle(120, 15, 80, 80, {
-                fill: 'red',
-                fillStyle: 'zigzag'
-            });
-            rc.circle(50, 150, 80, {
-                fillStyle: 'dots',
-                fill: "rgb(10,150,10)",
-            });
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
 
-            rc.rectangle(150, 150, 80, 80, { roughness: 0.5, fill: 'red' });
-            rc.rectangle(250, 250, 80, 80, { roughness: 5.8, fill: 'blue' });
-            rc.rectangle(300, 340, 80, 80, { bowing: 16, stroke: 'green', strokeWidth: 2 });
+            let x = 1920;
+            window.setInterval(() => {
+                // Clear canvas
+                context.save();
+                context.setTransform(1, 0, 0, 1, 0, 0);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.restore();
 
+                // Draw rough shapes
+                const rc = rough.canvas(canvas);
+                rc.rectangle(x - 200, 50, 200, 50);
+                rc.rectangle(x - 175, 5, 150, 45);
+                rc.rectangle(x - 170, 10, 35, 35);
+                rc.rectangle(x - 130, 10, 35, 35);
+                rc.circle(x - 30, 100, 50, { fillStyle: 'solid', fill: 'white' });
+            
+                rc.circle(x - 165, 100, 50, { fillStyle: 'solid', fill: 'white' });
+                x=x-15;
+            }, 30);
         </script>
 
 
