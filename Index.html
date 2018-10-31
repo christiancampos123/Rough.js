@@ -19,7 +19,7 @@
             const canvas = document.getElementById('canvas');
             const context = canvas.getContext('2d');
 
-            let x = 1920;
+            let x = 2120;
             window.setInterval(() => {
                 // Clear canvas
                 context.save();
@@ -37,6 +37,9 @@
             
                 rc.circle(x - 165, 100, 50, { fillStyle: 'solid', fill: 'white' });
                 x=x-15;
+                if(x<0){
+                    x=2120
+                }
             }, 30);
         </script>
 
