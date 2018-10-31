@@ -60,6 +60,7 @@
 
             rc.circle(x, y, 30, {
                 fill: "rgb(10,150,10)",
+                roughness: 2,
                 fillWeight: 3 // thicker lines for hachure
             });
 
@@ -81,11 +82,13 @@
 
             rc.circle(x1, y1, 30, {
                 fill: "rgb(10,150,10)",
+                roughness: 2,
                 fillWeight: 3 // thicker lines for hachure
+                
             });
 
-            rc.rectangle(0, 0, 100, 100, { fill: 'red' });
-            rc.rectangle(200, 0, 100, 100, { fill: 'red' });
+            rc.rectangle(0, 0, 100, 100, {roughness: 3, fill: 'red' });
+            rc.rectangle(200, 0, 100, 100, {roughness: 3, fill: 'red' });
 
         });
 
