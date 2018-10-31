@@ -12,36 +12,84 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="1920" height="600">
 
-        <script>
+    <canvas id="canvas" width="300" height="100"></canvas>
 
-            const canvas = document.getElementById('canvas');
+
+    <script>
+
+        const rc = rough.canvas(document.getElementById('canvas'));
+
+        document.addEventListener('mousemove', function (e) {
+
+            var mouse_X = e.clientX;
+            var mouse_Y = e.clientY;
+            var minX = 115;
+            var minY = 115;
+            var maxX = 185;
+            var maxY = 185;
+            var maxX1 = 385;
+            var minX1 = 315;
+
+            var x;
+            var y;
+            var x1;
+            var y1;
             const context = canvas.getContext('2d');
 
-            let x = 2120;
-            window.setInterval(() => {
-                // Clear canvas
-                context.save();
-                context.setTransform(1, 0, 0, 1, 0, 0);
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                context.restore();
+            context.save();
+            context.setTransform(1, 0, 0, 1, 0, 0);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.restore();
 
-                // Draw rough shapes
-                const rc = rough.canvas(canvas);
-                rc.rectangle(x - 200, 50, 200, 50);
-                rc.rectangle(x - 175, 5, 150, 45);
-                rc.rectangle(x - 170, 10, 35, 35);
-                rc.rectangle(x - 130, 10, 35, 35);
-                rc.circle(x - 30, 100, 50, { fillStyle: 'solid', fill: 'white' });
-            
-                rc.circle(x - 165, 100, 50, { fillStyle: 'solid', fill: 'white' });
-                x=x-15;
-                if(x<0){
-                    x=2120
-                }
-            }, 30);
-        </script>
+            if (mouse_Y < maxY && mouse_Y > minY) {
+                y = mouse_Y - 100;
+            } else if (mouse_Y > maxY) {
+                y = maxY - 100;
+            } else if (mouse_Y < minY) {
+                y = minY - 100;
+            }
+
+            if (mouse_X < maxX && mouse_X > minX) {
+                x = mouse_X - 100;
+            } else if (mouse_X > maxX) {
+                x = maxX - 100;
+            } else if (mouse_X < minX) {
+                x = minX - 100;
+            }
+
+            rc.circle(x, y, 30, {
+                fill: "rgb(10,150,10)",
+                fillWeight: 3 // thicker lines for hachure
+            });
+
+            if (mouse_Y < maxY && mouse_Y > minY) {
+                y1 = mouse_Y - 100;
+            } else if (mouse_Y > maxY) {
+                y1 = maxY - 100;
+            } else if (mouse_Y < minY) {
+                y1 = minY - 100;
+            }
+
+            if (mouse_X < maxX1 && mouse_X > minX1) {
+                x1 = mouse_X - 100;
+            } else if (mouse_X > maxX1) {
+                x1 = maxX1 - 100;
+            } else if (mouse_X < minX1) {
+                x1 = minX1 - 100;
+            }
+
+            rc.circle(x1, y1, 30, {
+                fill: "rgb(10,150,10)",
+                fillWeight: 3 // thicker lines for hachure
+            });
+
+            rc.rectangle(0, 0, 100, 100, { fill: 'red' });
+            rc.rectangle(200, 0, 100, 100, { fill: 'red' });
+
+        });
+
+    </script>
 
 
 </body>
