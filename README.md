@@ -4,4 +4,4 @@ Ejemplo - https://gitcdn.xyz/cdn/christiancampos123/Rough.js/0782482642463a081f1
 
 Ejemplo Coche - https://gitcdn.xyz/repo/christiancampos123/Rough.js/Ejemplo-C/Index.html
 
-Ejemplo Ojos - https://gitcdn.xyz/repo/christiancampos123/Rough.js/ejemplo-ojos/Index.html
+Ejemplo Ojos - https://gitcdn.xyz/repo/christiancampos123/ojoss/master/Index.html
