@@ -15,10 +15,8 @@
     <canvas id="canvas" width="1920" height="600">
 
         <script>
-
             const canvas = document.getElementById('canvas');
             const context = canvas.getContext('2d');
-
             let x = 2120;
             window.setInterval(() => {
                 // Clear canvas
@@ -26,10 +24,10 @@
                 context.setTransform(1, 0, 0, 1, 0, 0);
                 context.clearRect(0, 0, canvas.width, canvas.height);
                 context.restore();
-
                 // Draw rough shapes
                 const rc = rough.canvas(canvas);
-                rc.rectangle(x - 200, 50, 200, 50);
+                //error aqui
+                rc.rectangl(x - 200, 50, 200, 50);
                 rc.rectangle(x - 175, 5, 150, 45);
                 rc.rectangle(x - 170, 10, 35, 35);
                 rc.rectangle(x - 130, 10, 35, 35);
